@@ -1,0 +1,6 @@
+﻿---
+# sample playbook
+- name: Install the Extra Packages for Enterprise Linux (EPEL)
+  yum: name={{ item }} state=installed
+  with_items: epel-release
+  when: ansible_os_family == 'RedHat'

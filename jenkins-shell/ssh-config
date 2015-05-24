@@ -1,0 +1,44 @@
+Host *
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+
+Host stage01
+  HostName        192.168.123.101
+  Port            22
+  User            ansible01
+  IdentityFile    ~/.ssh/id_rsa
+  TCPKeepAlive yes
+  IdentitiesOnly yes
+
+Host stage02
+  HostName        192.168.123.102
+  Port            22
+  User            ansible01
+  IdentityFile    ~/.ssh/id_rsa
+  TCPKeepAlive yes
+  IdentitiesOnly yes
+
+Host stage03
+  HostName        192.168.123.103
+  Port            22
+  User            ansible01
+  IdentityFile    ~/.ssh/id_rsa
+  TCPKeepAlive yes
+  IdentitiesOnly yes
+  StrictHostKeyChecking no
+
+Host stage04
+  HostName        192.168.123.104
+  Port            22
+  User            ansible01
+  IdentityFile    ~/.ssh/id_rsa
+  TCPKeepAlive yes
+  IdentitiesOnly yes
+
+Host stage05
+  HostName        192.168.123.105
+  Port            22
+  User            ansible01
+  IdentityFile    ~/.ssh/id_rsa
+  TCPKeepAlive yes
+  IdentitiesOnly yes

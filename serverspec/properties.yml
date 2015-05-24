@@ -1,0 +1,6 @@
+base:
+  :dns_server: 172.19.1.34
+db:
+  :db_port: 3306
+web:
+  :web_port: 80
