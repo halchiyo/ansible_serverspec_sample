@@ -1,0 +1,4 @@
+---
+url_package_release: http://pkg.jenkins-ci.org/redhat/jenkins.repo
+rpm_gpg_key: http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+

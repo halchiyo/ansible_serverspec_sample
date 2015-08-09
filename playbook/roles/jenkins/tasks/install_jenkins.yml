@@ -1,0 +1,19 @@
+---
+- name: Install Jenkins (RedHat | CentOS)
+  yum: name={{ item }} state=present
+  with_items: jenkins_packages
+  when: ansible_os_family=='RedHat'
+
+- name: check if firewalld is running
+  command: systemctl is-active firewalld
+  register: firewalld_result
+  changed_when:  False
+  ignore_errors: True
+
+- name: Configure furewalld for Jienkins
+  firewalld:
+    permanent=True
+    port={{ jenkins_port }}/tcp
+    state=enabled
+  notify: restart firewalld
+  when: firewalld_result.stdout == "active"

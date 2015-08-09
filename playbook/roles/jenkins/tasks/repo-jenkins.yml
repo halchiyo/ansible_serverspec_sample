@@ -1,0 +1,28 @@
+---
+- name: include os-specific variables
+  include_vars: '{{ ansible_distribution }}.yml'
+
+- debug: msg='{{ url_package_release }}'
+
+- name: configuring a yum repository for jenkins (RedHat | CentOS)
+  get_url:
+    url:  '{{ url_package_release }}'
+    dest: /etc/yum.repos.d/jenkins.repo
+  when:
+    - ansible_os_family=='RedHat'
+
+- name: configuring a yum repository for jenkins (RedHat | CentOS)
+  file:
+    path:  /etc/yum.repos.d/jenkins.repo
+    group: root
+    owner: root
+    mode:  u=rw,g=r,o=r
+  when:
+    - ansible_os_family=='RedHat'
+
+- name: import a gpg key (RedHat | CentOS)
+  rpm_key:
+    key:   '{{ rpm_gpg_key }}'
+    state: present
+  when:
+    - ansible_os_family=='RedHat'

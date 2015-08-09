@@ -1,0 +1,9 @@
+---
+- name: Add the group 'jenkins'
+  command: /usr/sbin/groupadd -g {{ jenkins_gid }} jenkins
+  ignore_errors: yes
+
+- name: Add the user 'jenkins' (RedHat | CentOS)
+  command: /usr/sbin/useradd -g jenkins -c "Jenkins Continuous Integration Server" -d /var/lib/jenkins -s /bin/false -u {{ jenkins_uid }} jenkins
+  ignore_errors: yes
+  when: ansible_os_family=='RedHat'

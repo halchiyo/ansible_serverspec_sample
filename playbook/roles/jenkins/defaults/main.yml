@@ -1,0 +1,10 @@
+---
+jenkins_packages:
+  - java-1.8.0-openjdk
+  - jenkins-1.623-1.1.noarch
+## Option for Setting UID and GID for zabbix services
+# COMMON_ENABLE_SETUIDGID: False
+COMMON_ENABLE_SETUIDGID: True
+jenkins_gid:  '996'
+jenkins_uid:  '997'
+jenkins_port: '8080'

@@ -1,0 +1,5 @@
+---
+- include: repo-jenkins.yml
+- include: create_user_and_group.yml
+  when: COMMON_ENABLE_SETUIDGID
+- include: install_jenkins.yml
